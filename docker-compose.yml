@@ -3,7 +3,7 @@ version: "2.2"
 services:
   cloud:
     container_name: cloud
-    image: registry.picasoft.net/nextcloud:15.0   
+    image: cloud:15.0   
     labels:
       - "traefik.frontend.rule=Host:cloud.domain_name"
       - "traefik.port=80"
@@ -17,7 +17,7 @@ services:
 
   cloud_db:
     container_name: cloud_db
-    image: postgres:9.6
+    image: postgres:11.2
     restart: always
     volumes:
       - /DATA/docker/cloud/cloud_db_data:/var/lib/postgresql/data
@@ -30,7 +30,7 @@ services:
 
   cloud_collabora:
     container_name: cloud_collabora
-    image: registry.picasoft.net/collabora:6.0
+    image: collabora:6.0
     cap_add:
       - MKNOD
     environment:
@@ -41,7 +41,7 @@ services:
 
   cloud_nginx:
     container_name: cloud_collabora_nginx
-    image: registry.picasoft.net/pica-nginx:latest
+    image: pica-nginx:latest
     restart: always
     labels:
       - "traefik.frontend.rule=Host:office.domain_name"

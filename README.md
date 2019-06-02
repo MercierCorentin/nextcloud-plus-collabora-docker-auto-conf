@@ -4,7 +4,7 @@
 
 - Launch `./scripts/init.sh domain_name` (replace `domain_name` by your domain name)
 
-## Naming informations
+## Naming information
 
 Let's say that your domain name is `picasoft.net`.
 
