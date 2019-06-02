@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sed -i -e 's/domain_name/$1/g' ../collabora_nginx_conf/*
+
 mkdir /DATA
 mkdir /DATA/docker/
 mkdir /DATA/docker/cloud
