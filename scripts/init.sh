@@ -1,14 +1,13 @@
 #!/bin/bash
 
+path=/DATA/docker/cloud
+
 sed -i -e "s/domain_name/$1/g" ../collabora_nginx_conf/*
 sed -i -e "s/domain_name/$1/g" ../docker-compose.yml
 
-mkdir /DATA
-mkdir /DATA/docker/
-mkdir /DATA/docker/cloud
-mkdir /DATA/docker/cloud/collabora_nginx_conf
-mkdir /DATA/docker/cloud/cloud_data
-mkdir /DATA/docker/cloud/cloud_db_data
+mkdir $path/collabora_nginx_conf
+mkdir $path/cloud_data
+mkdir $path/cloud_db_data
 
 mv ../collabora_nginx_conf/* /DATA/docker/cloud/collabora_nginx_conf
 
