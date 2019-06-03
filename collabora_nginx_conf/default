@@ -1,12 +1,12 @@
 server {
 
     listen               80;
-    server_name          office.picasoft.net;
+    server_name          office.domain_name;
     client_max_body_size 10G;
     proxy_set_header     X-Forwarded-Proto 'https';
     underscores_in_headers on;
     add_header           Strict-Transport-Security "max-age=31536000";
-    add_header    Content-Security-Policy "default-src 'none'; frame-src 'self' blob:; connect-src 'self' wss://cloud.picasoft.net; script-src 'unsafe-inline' 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src blob:; img-src 'self' data: https://cloud.picasoft.net:443; frame-ancestors https://cloud.picasoft.net:443 'self'";
+    add_header    Content-Security-Policy "default-src 'none'; frame-src 'self' blob:; connect-src 'self' wss://cloud.domain_name; script-src 'unsafe-inline' 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; object-src blob:; img-src 'self' data: https://cloud.domain_name:443; frame-ancestors https://cloud.domain_name:443 'self'";
 
     location /.well-known/ {
         root   /var/lib/nginx/letsencrypt/;
