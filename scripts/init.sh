@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sed -i -e 's/domain_name/$1/g' ../collabora_nginx_conf/*
+sed -i -e 's/domain_name/$1/g' ../docker-compose.yml
 
 mkdir /DATA
 mkdir /DATA/docker/
@@ -12,9 +13,9 @@ mkdir /DATA/docker/cloud/cloud_db_data
 mv ../collabora_nginx_conf/* /DATA/docker/cloud/collabora_nginx_conf
 
 docker build -t cloud:15.0 ../dockerfiles/nextcloud/
-docker build postgres:11.2
-docker build -t pica-nginx:latest ../dockerfiles/pica-nginx/
 docker build -t collabora:6.0 ../dockerfiles/collabora/
+docker pull postgres
+docker pull nginx
 
 cd ..
 
