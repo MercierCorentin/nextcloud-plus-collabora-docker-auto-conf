@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sed -i -e 's/domain_name/$1/g' ../collabora_nginx_conf/*
-sed -i -e 's/domain_name/$1/g' ../docker-compose.yml
+sed -i -e "s/domain_name/$1/g" ../collabora_nginx_conf/*
+sed -i -e "s/domain_name/$1/g" ../docker-compose.yml
 
 mkdir /DATA
 mkdir /DATA/docker/
