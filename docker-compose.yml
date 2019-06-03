@@ -39,7 +39,7 @@ services:
       - password=collabora_admin_password
     restart: always
 
-  cloud_nginx:
+  cloud_collabora_nginx:
     container_name: cloud_collabora_nginx
     image: nginx:latest
     restart: always
