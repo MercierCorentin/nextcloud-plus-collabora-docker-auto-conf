@@ -8,7 +8,6 @@ services:
       - "traefik.frontend.rule=Host:cloud.domain_name"
       - "traefik.port=80"
       - "traefik.enable=true"
-      - "traefik.docker.network=docker_default"
     links:
       - cloud_db:cloud_db
     volumes:
@@ -16,7 +15,6 @@ services:
     restart: always
     networks:
       - docker_default
-
 
   cloud_db:
     container_name: cloud_db
@@ -44,26 +42,24 @@ services:
       - password=collabora_admin_password
     restart: always
     networks:
-      - docker_default 
-
+      - docker_default
 
   cloud_collabora_nginx:
     container_name: cloud_collabora_nginx
-    image: nginx:latest
+    build: 
+      context: ./dockerfiles/nginx/
+      args:
+        - domain_name=domain_name
+
     restart: always
     labels:
       - "traefik.frontend.rule=Host:office.domain_name"
       - "traefik.port=80"
       - "traefik.enable=true"
-      - "traefik.docker.network=docker_default"
     links:
       - cloud_collabora:cloud_collabora
-    volumes:
-      - /DATA/docker/cloud/collabora_nginx_conf/default:/etc/nginx/sites-available/default
-      - /DATA/docker/cloud/collabora_nginx_conf/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - docker_default
-
 networks:
     docker_default:
       external:
