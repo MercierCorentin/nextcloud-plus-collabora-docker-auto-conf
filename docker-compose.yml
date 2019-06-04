@@ -3,15 +3,15 @@ version: "2.2"
 services:
   cloud:
     container_name: cloud
-    image: cloud:15.0   
+    build: ./dockerfiles/nextcloud/  
     labels:
-      - "traefik.frontend.rule=Host:cloud.domain_name"
+      - "traefik.frontend.rule=Host:cloud.${DOMAIN_NAME}"
       - "traefik.port=80"
       - "traefik.enable=true"
     links:
       - cloud_db:cloud_db
     volumes:
-      - /DATA/docker/cloud/cloud_data:/var/www/html
+      - ${DATA_PATH}/cloud_data:/var/www/html
     restart: always
     networks:
       - docker_default
@@ -21,7 +21,7 @@ services:
     image: postgres:latest
     restart: always
     volumes:
-      - /DATA/docker/cloud/cloud_db_data:/var/lib/postgresql/data
+      - ${DATA_PATH}/cloud_db_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres_user
       - POSTGRES_PASSWORD=postgres_password
@@ -33,7 +33,7 @@ services:
 
   cloud_collabora:
     container_name: cloud_collabora
-    image: collabora:6.0
+    build: ./dockerfiles/collabora/
     cap_add:
       - MKNOD
     environment:
@@ -49,11 +49,11 @@ services:
     build: 
       context: ./dockerfiles/nginx/
       args:
-        - domain_name=domain_name
+        - domain_name=${DOMAIN_NAME}
 
     restart: always
     labels:
-      - "traefik.frontend.rule=Host:office.domain_name"
+      - "traefik.frontend.rule=Host:office.${DOMAIN_NAME}"
       - "traefik.port=80"
       - "traefik.enable=true"
     links:
