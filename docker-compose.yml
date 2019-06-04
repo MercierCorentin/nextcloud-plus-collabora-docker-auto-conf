@@ -12,6 +12,13 @@ services:
       - cloud_db:cloud_db
     volumes:
       - ${DATA_PATH}/cloud_data:/var/www/html
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASS}
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_HOST=cloud_db
+      - NEXTCLOUD_ADMIN_USER=${ADMIN_USER}
+      - NEXTCLOUD_ADMIN_PASSWORD=${ADMIN_PASS}
     restart: always
     networks:
       - docker_default
@@ -22,13 +29,6 @@ services:
     restart: always
     volumes:
       - ${DATA_PATH}/cloud_db_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=${DATABASE_USER}
-      - POSTGRES_PASSWORD=${DATABASE_PASS}
-      - POSTGRES_DB=${DATABASE_NAME}
-      - POSTGRES_HOST=cloud_db
-      - NEXTCLOUD_ADMIN_USER=${ADMIN_USER}
-      - NEXTCLOUD_ADMIN_PASSWORD=${ADMIN_PASS}
     networks:
       - docker_default
 
