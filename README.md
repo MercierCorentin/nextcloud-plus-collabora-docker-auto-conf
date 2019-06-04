@@ -1,8 +1,18 @@
 # Nextcloud + Collabora Online under docker with traefik reverse-proxy
 
-## Installation
+## Installation and configuration
 
-- Launch `./scripts/init.sh domain_name` (replace `domain_name` by your domain name)
+Rename `.env-example` file to `.env` and fill it.
+
+- `DOMAIN_NAME` is the domain name of your server.
+- `DATA_PATH` is the absolute path of the folder were the persistent data will be stored.
+  
+Just run in the root of the repo folder:
+
+```bash
+    docker-compose build
+    docker-compose up -d cloud cloud_collabora_nginx
+```
 
 ## Naming information
 
