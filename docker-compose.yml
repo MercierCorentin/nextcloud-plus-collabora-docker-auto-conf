@@ -11,7 +11,7 @@ services:
     links:
       - cloud_db:cloud_db
     volumes:
-      - ${DATA_PATH}/cloud_data:/var/www/html
+      - cloud_data:/var/www/html
     environment:
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASS}
@@ -28,7 +28,11 @@ services:
     image: postgres:latest
     restart: always
     volumes:
-      - ${DATA_PATH}/cloud_db_data:/var/lib/postgresql/data
+      - cloud_db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASS}
+      - POSTGRES_DB=${DATABASE_NAME}
     networks:
       - docker_default
 
@@ -51,7 +55,6 @@ services:
       context: ./dockerfiles/nginx/
       args:
         - domain_name=${DOMAIN_NAME}
-
     restart: always
     labels:
       - "traefik.frontend.rule=Host:office.${DOMAIN_NAME}"
@@ -65,3 +68,6 @@ networks:
     docker_default:
       external:
         name: docker_default
+volumes:
+    cloud_data:
+    cloud_db_data:
