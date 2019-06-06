@@ -5,7 +5,11 @@
 Rename `.env-example` file to `.env` and fill it.
 
 - `DOMAIN_NAME` is the domain name of your server.
-- `DATA_PATH` is the absolute path of the folder were the persistent data will be stored.
+- `DATABASE_NAME` name of your nextcloud's DB
+- `DATABASE_USER` username for database user
+- `DATABASE_PASS` password for database user
+- `ADMIN_USER` Nextcloud admin username
+- `ADMIN_PASS` Nextcloud admin password
   
 Just run in the root of the repo folder:
 
