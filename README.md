@@ -1,4 +1,4 @@
-# Nextcloud + Collabora Online under docker with traefik reverse-proxy
+# Nextcloud + Collabora Online auto-configuration under docker with traefik reverse-proxy
 
 ## Installation and configuration
 
