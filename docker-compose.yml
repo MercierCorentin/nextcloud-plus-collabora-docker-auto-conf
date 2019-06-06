@@ -43,7 +43,7 @@ services:
     cap_add:
       - MKNOD
     environment:
-      - domain=cloud.domain_name
+      - domain=cloud\.${DOTS_ESCAPED_DOMAIN_NAME}
       - username=collabora_admin_username
       - password=collabora_admin_password
     restart: always
