@@ -1,5 +1,12 @@
 # Nextcloud + Collabora Online under docker with traefik reverse-proxy
 
+## Introduction
+
+This configuration helps starting all containers for a Nextcloud + Collabora Online instance.
+It builds all needed images with right configuration and goes further in the auto-configuration of Nextcloud. Indeed it installs and configures Collabora Online App.
+
+Why this? Originally it was to test my laravel package: [Nextcloud User provisionning API client](https://github.com/MercierCorentin/laravel-nextcloud-api-client)
+
 ## Installation and configuration
 
 Rename `.env-example` file to `.env` and fill it.
@@ -34,3 +41,11 @@ Let's say that your domain name is `picasoft.net`.
 - Nextcloud Database: `cloud_db`
 - Collabora Nginx Reverse Proxy: `cloud_collabora_nginx`
 - Collabora Online: `cloud_collabora`
+
+## What's next? 
+
+- Nextcloud 16.0 support.
+- More advanced language configuration. (FR and EN available on collabora online personnal image)
+- Naming configuration?
+
+For any advice/help/suggestion don't hesitate to contact me or contribute.
