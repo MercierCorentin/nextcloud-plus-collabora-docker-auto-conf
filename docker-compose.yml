@@ -66,6 +66,7 @@ services:
       - cloud_collabora:cloud_collabora
     networks:
       - docker_default
+      
 networks:
     docker_default:
       external:
