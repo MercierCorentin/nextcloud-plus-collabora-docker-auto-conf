@@ -113,9 +113,9 @@ if expr "$1" : "apache" 1>/dev/null || [ "$1" = "php-fpm" ] || [ "${NEXTCLOUD_UP
                             NC_TRUSTED_DOMAIN_IDX=$(($NC_TRUSTED_DOMAIN_IDX+1))
                         done
                         if [ -n "${WOPI_URL+x}" ]; then
-                            echo "Installing collabora app...";
-                            php /var/www/html/occ app:install richdocuments
-                            php /var/www/html/occ config:app:set richdocuments wopi_url --value="https://${WOPI_URL}" 
+                            echo "Installing collabora app..."
+                            run_as 'php /var/www/html/occ app:install richdocuments'
+                            run_as 'php /var/www/html/occ config:app:set richdocuments wopi_url --value="https://${WOPI_URL}"'
                             echo "Collabora app installed."
                         fi
                     fi
