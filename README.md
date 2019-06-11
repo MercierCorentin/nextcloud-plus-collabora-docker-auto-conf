@@ -13,6 +13,7 @@ Rename `.env-example` file to `.env` and fill it.
 
 - `DOMAIN_NAME` is the domain name of your server.
 - `DOTS_ESCAPED_DOMAIN_NAME` is the domain name with slashes before dots. Example: `mysubdomain\.mydomain\.com`
+- `NEXTCLOUD_VERSION` value of nextcloud version. Supported: `15` or `16`
 - `DATABASE_NAME` name of your nextcloud's DB
 - `DATABASE_USER` username for database user
 - `DATABASE_PASS` password for database user
