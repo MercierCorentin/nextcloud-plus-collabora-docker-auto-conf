@@ -3,7 +3,7 @@ version: "2.2"
 services:
   cloud:
     container_name: cloud
-    build: ./dockerfiles/nextcloud/  
+    build: ./dockerfiles/nextcloud/${NEXTCLOUD_VERSION}.0/
     labels:
       - "traefik.frontend.rule=Host:cloud.${DOMAIN_NAME}"
       - "traefik.port=80"
