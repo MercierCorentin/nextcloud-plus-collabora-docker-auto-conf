@@ -45,8 +45,8 @@ Let's say that your domain name is `picasoft.net`.
 
 ## What's next? 
 
-- Nextcloud 16.0 support.
-- More advanced language configuration. (FR and EN available on collabora online personnal image)
-- Naming configuration?
+- [X] Nextcloud 16.0 support.
+- [ ] More advanced language configuration. (FR and EN available on collabora online personnal image)
+- [ ] Naming configuration?
 
 For any advice/help/suggestion don't hesitate to contact me or contribute.
