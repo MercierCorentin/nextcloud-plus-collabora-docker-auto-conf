@@ -19,6 +19,14 @@ Rename `.env-example` file to `.env` and fill it.
 - `DATABASE_PASS` password for database user
 - `ADMIN_USER` Nextcloud admin username
 - `ADMIN_PASS` Nextcloud admin password
+- `SMTP_HOST` smtp sever domain name
+- `SMTP_SECURE` smtp encryption
+- `SMTP_PORT` smtp port
+- `SMTP_AUTHTYPE` NONE | LOGIN | PLAIN
+- `SMTP_NAME` SMTP username
+- `SMTP_PASSWORD` SMTP password
+- `MAIL_FROM_ADDRESS` part of the mail adress (before `@`) you want in the From header of all sended emails
+- `MAIL_DOMAIN` part of the mail adress (after `@`) you want in the From header of all sended emails
   
 Just run in the root of the repo folder:
 
